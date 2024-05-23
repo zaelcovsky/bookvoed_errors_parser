@@ -111,9 +111,17 @@ async def worker(links_queue: asyncio.Queue, catalog_section_name: str):
 #                         ("Хозтовары", "https://www.bookvoed.ru/catalog/khoztovary-3668", 1),
 #                         ("Аудиокниги", "https://www.bookvoed.ru/catalog/audio-1693", 1)]
 
-CATALOG_SECTIONS_URLS = [
-                        ("Букинистика-и-антикварные-издания", "https://www.bookvoed.ru/catalog/bukinistika-i-antikvarnye-izdaniya-4772", 2)
-                        ]
+CATALOG_SECTIONS_URLS = [("Религия", "https://www.bookvoed.ru/catalog/religiya-1437", 171),
+                        ("Эксклюзивная-продукция", "https://www.bookvoed.ru/catalog/eksklyuzivnaya-produktsiya-3656", 13),
+                        ("Канцтовары", "https://www.bookvoed.ru/catalog/kantstovary-1919", 344),
+                        ("Календари-2024", "https://www.bookvoed.ru/catalog/kalendari-2024-4788", 15),
+                        ("Сувениры.Аксессуары", "https://www.bookvoed.ru/catalog/suvenirnaya-produktsiya-2182", 117),
+                        ("Книги-в-кожаном-переплете", "https://www.bookvoed.ru/catalog/knigi-v-kozhanom-pereplete-2729", 8),
+                        ("Книжный-развал", "https://www.bookvoed.ru/catalog/knizhnyy-razval-3646", 18),
+                        ("Букинистика-и-антикварные-издания", "https://www.bookvoed.ru/catalog/bukinistika-i-antikvarnye-izdaniya-4772", 49),
+                        ("Хозтовары", "https://www.bookvoed.ru/catalog/khoztovary-3668", 1),
+                        ("Аудиокниги", "https://www.bookvoed.ru/catalog/audio-1693", 1)]
+
 
 if __name__ == "__main__":
     for item in CATALOG_SECTIONS_URLS:
