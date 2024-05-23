@@ -45,4 +45,4 @@ jobs:
         git config --local user.name "GitHub Action"
         git add --all 404_and_500_errors/
         git commit -m "Save files to repo"
-        git push
+        git push -f
