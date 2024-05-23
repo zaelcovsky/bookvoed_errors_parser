@@ -14,6 +14,8 @@ jobs:
     steps:
     - name: checkout repo content
       uses: actions/checkout@v4
+      with:
+        persist-credentials: true
     
     - name: Set up Python 3.11
       uses: actions/setup-python@v5
@@ -36,3 +38,9 @@ jobs:
     - name: Execute py script
       run: |
         python parser.py
+
+    - name: Commit files to repo
+      run: |
+        git add --all 404_and_500_errors/
+        git commit -m "Save files to repo"
+        git push
