@@ -111,9 +111,9 @@ async def worker(links_queue: asyncio.Queue, catalog_section_name: str):
 #                         ("Хозтовары", "https://www.bookvoed.ru/catalog/khoztovary-3668", 1),
 #                         ("Аудиокниги", "https://www.bookvoed.ru/catalog/audio-1693", 1)]
 
-CATALOG_SECTIONS_URLS = [("Товары-для-детей", "https://www.bookvoed.ru/catalog/detstov-1338", 186),
-                         ("Книги-с-автографом", "https://www.bookvoed.ru/catalog/knigi-s-avtografom-4435", 16),
-                         ("Книги-для-подростков", "https://www.bookvoed.ru/catalog/knigi-dlya-podrostkov-3351", 23)]
+CATALOG_SECTIONS_URLS = [("Бизнес-литература", "https://www.bookvoed.ru/catalog/business-1671", 138),
+                         ("Самообразование-и-развитие", "https://www.bookvoed.ru/catalog/samoobrazovanie-i-razvitie-4560", 178),
+                         ("Педагогика-и-воспитание", "https://www.bookvoed.ru/catalog/pedagogika-i-vospitanie-4743", 172)]
 
 
 if __name__ == "__main__":
