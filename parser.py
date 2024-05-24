@@ -40,7 +40,7 @@ def fetcher(catalog_section_name: str, catalog_section_url: str, page_number: in
         file.write(f"----------\nОбработка страницы {page_number}\n----------\n")
     with open(f'{os.path.join("404_and_500_errors", f"{catalog_section_name}_500.txt")}', 'a') as file:
         file.write(f"----------\nОбработка страницы {page_number}\n----------\n")
-    print(f'--------{page_url}--------')
+    print(f'-------- {page_url} --------')
     html = page.text
     tree = etree.parse(StringIO(html), parser=parser)
     refs = tree.xpath("//a[@class='product-card__image-link base-link']")
@@ -111,11 +111,10 @@ async def worker(links_queue: asyncio.Queue, catalog_section_name: str):
 #                         ("Хозтовары", "https://www.bookvoed.ru/catalog/khoztovary-3668", 1),
 #                         ("Аудиокниги", "https://www.bookvoed.ru/catalog/audio-1693", 1)]
 
-CATALOG_SECTIONS_URLS = [("Книги-в-кожаном-переплете", "https://www.bookvoed.ru/catalog/knigi-v-kozhanom-pereplete-2729", 8),
-                       ("Книжный-развал", "https://www.bookvoed.ru/catalog/knizhnyy-razval-3646", 18),
-                        ("Букинистика-и-антикварные-издания", "https://www.bookvoed.ru/catalog/bukinistika-i-antikvarnye-izdaniya-4772", 49),
-                        ("Хозтовары", "https://www.bookvoed.ru/catalog/khoztovary-3668", 1),
-                         ("Аудиокниги", "https://www.bookvoed.ru/catalog/audio-1693", 1)]
+CATALOG_SECTIONS_URLS = [("Сувениры.Аксессуары", "https://www.bookvoed.ru/catalog/suvenirnaya-produktsiya-2182", 117),
+                       ("Календари-2024", "https://www.bookvoed.ru/catalog/kalendari-2024-4788", 15),
+                        ("Эксклюзивная-продукция", "https://www.bookvoed.ru/catalog/eksklyuzivnaya-produktsiya-3656", 13),
+                        ("Религия", "https://www.bookvoed.ru/catalog/religiya-1437", 171)]
 
 
 if __name__ == "__main__":
