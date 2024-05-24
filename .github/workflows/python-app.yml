@@ -39,7 +39,7 @@ jobs:
       run: |
         python parser.py
 
-    - name: Commit files to repo
+    - name: Commit and push files to repo
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
