@@ -111,13 +111,14 @@ async def worker(links_queue: asyncio.Queue, catalog_section_name: str):
 #                         ("Хозтовары", "https://www.bookvoed.ru/catalog/khoztovary-3668", 1),
 #                         ("Аудиокниги", "https://www.bookvoed.ru/catalog/audio-1693", 1)]
 
-CATALOG_SECTIONS_URLS = [
-                          ("Хобби-и-досуг", "https://www.bookvoed.ru/catalog/khobbi-i-dosug-4056", 817)]
+CATALOG_SECTIONS_URLS = [("Бизнес-литература", "https://www.bookvoed.ru/catalog/business-1671", 138),
+                         ("Самообразование-и-развитие", "https://www.bookvoed.ru/catalog/samoobrazovanie-i-razvitie-4560", 178),
+                         ("Педагогика-и-воспитание", "https://www.bookvoed.ru/catalog/pedagogika-i-vospitanie-4743", 172)]
 
 
 if __name__ == "__main__":
     for item in CATALOG_SECTIONS_URLS:
-        for _ in range(781, item[2] + 1):
+        for _ in range(1, item[2] + 1):
             links = fetcher(item[0], item[1], _)
             links_queue = asyncio.Queue()
             asyncio.run(fill_queue(links))
