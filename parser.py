@@ -40,7 +40,7 @@ def fetcher(catalog_section_name: str, catalog_section_url: str, page_number: in
         file.write(f"----------\nОбработка страницы {page_number}\n----------\n")
     with open(f'{os.path.join("404_and_500_errors", f"{catalog_section_name}_500.txt")}', 'a') as file:
         file.write(f"----------\nОбработка страницы {page_number}\n----------\n")
-    print(f'--------{page_url}--------')
+    print(f'-------- {page_url} --------')
     html = page.text
     tree = etree.parse(StringIO(html), parser=parser)
     refs = tree.xpath("//a[@class='product-card__image-link base-link']")
@@ -82,7 +82,7 @@ async def worker(links_queue: asyncio.Queue, catalog_section_name: str):
                         file.write(f"{current_url}\n")
     except Exception as e:
         with open('log.txt', 'a') as file:
-            # msk_time_now = datetime.utcnow() + timedelta(hours=3)
+            # msk_time_now = datetime.datetime.utcnow() + timedelta(hours=3)
             msk_time_now = datetime.datetime.now(datetime.UTC) + timedelta(hours=3)
             file.write(f"{msk_time_now.strftime('%Y-%m-%d %H:%M:%S')} Error fetching {current_url}: {e}\n")
     finally:
@@ -111,16 +111,13 @@ async def worker(links_queue: asyncio.Queue, catalog_section_name: str):
 #                         ("Хозтовары", "https://www.bookvoed.ru/catalog/khoztovary-3668", 1),
 #                         ("Аудиокниги", "https://www.bookvoed.ru/catalog/audio-1693", 1)]
 
-CATALOG_SECTIONS_URLS = [("Книги-в-кожаном-переплете", "https://www.bookvoed.ru/catalog/knigi-v-kozhanom-pereplete-2729", 8),
-                       ("Книжный-развал", "https://www.bookvoed.ru/catalog/knizhnyy-razval-3646", 18),
-                        ("Букинистика-и-антикварные-издания", "https://www.bookvoed.ru/catalog/bukinistika-i-antikvarnye-izdaniya-4772", 49),
-                        ("Хозтовары", "https://www.bookvoed.ru/catalog/khoztovary-3668", 1),
-                         ("Аудиокниги", "https://www.bookvoed.ru/catalog/audio-1693", 1)]
+CATALOG_SECTIONS_URLS = [
+                          ("Хобби-и-досуг", "https://www.bookvoed.ru/catalog/khobbi-i-dosug-4056", 817)]
 
 
 if __name__ == "__main__":
     for item in CATALOG_SECTIONS_URLS:
-        for _ in range(1, item[2] + 1):
+        for _ in range(781, item[2] + 1):
             links = fetcher(item[0], item[1], _)
             links_queue = asyncio.Queue()
             asyncio.run(fill_queue(links))
